@@ -1,0 +1,77 @@
+:sourcedir: ../../../main/java
+
+=== Sequenz
+
+==== Ablauf eines typischen Requests vom Frontend zum Backend
+Folgende Grafik zeigt den typischen Ablauf eines Requests vom Frontend über die Middleware zur Datenbank.
+
+Dies ist ein *Test*.
+
+[options="header",cols="1,1,1,1"]
+|===
+|HeadA   |HeadB   |HeadC   |HeadD   
+//-------------------------------
+|Row1A   |Row1B   |Row1C   |Row1D   
+|Row2A   |Row2B   |Row2C   |Row2D   
+|===
+
+IMPORTANT: some nice text to show inside admonition...
+
+NOTE: some nice text to show inside admonition...
+
+
+
+
+
+.Request über Schnittstellen vom Frontend über Middleware zur Datenbank
+[plantuml]
+....
+participant Frontend as FE
+participant Middleware as MW
+participant Datenbank as DB
+
+FE  ->  MW:       GET /kunden/4711
+activate   FE
+MW  ->  DB:       "SELECT * FROM KUNDEN where KD_NR = '4711'"
+activate   MW
+MW  <-- DB:       KD oder leeres ResultSet
+deactivate MW
+FE  <-- MW:       HTTP 200/400/500
+deactivate FE
+
+note left
+ Kunde als HTTP-Body
+ oder Error im HTTP-Header
+end note
+....
+
+===== Beispiel für das Laden eines Kunden aus der Datenbank
+Schauen wir uns doch mal an, wie die gesamte Source-Datei aussieht:
+
+[source,java]
+.KundenRepository.java -> Ja, dies ist eine Legende.
+....
+include::{sourcedir}/de/ordix/blog/asciidoc/kunden/KundenRepository.java[]
+....
+<1> Die `find`-Methode zum Lesen eines Kunden.
+<2> Die `save`-Methode zum Speichern eines Kunden.
+
+Und jetzt werfen wir einen Blick auf die `find`-Methode:
+[source,java]
+.KundenRepository.find(long kdNr)
+....
+include::{sourcedir}/de/ordix/blog/asciidoc/kunden/KundenRepository.java[tags=findMethod]
+....
+<1> Die `find`-Methode zum Lesen eines Kunden.
+
+Natürlich kann man Quellcode auch direkt einbinden:
+
+[source,java]
+.Das gespeicherte Kunden-Objekt wird inkl. der Kunden-Nr. zurückgeliefert.
+....
+return kundenDb.put(kdNr, kunde);
+....
+
+
+
+

@@ -1,0 +1,29 @@
+=== Anwendungsfälle
+Im folgenden wird gezeigt, wie mit *PlantUML* ein Use-Case-Diagramm erstellt und in *Asciidoc* eingebunden werden kann.
+
+==== AWF-001: Mitarbeiter im Fachbereich nutzt Demo-Applikation
+
+.Verwendung der Demo-Applikation durch den Mitarbeiter im Fachbereich
+[plantuml]
+....
+actor "MA Fachbereich" as MA_FB
+node Browser
+node Frontend {
+  file "NFS Mount" as NFS
+}
+usecase CMS
+
+MA_FB         -do->  Browser:       ""nutzt Demo-Applikation""
+Browser       -ri->  Frontend:      ""ruft Frontend auf""
+
+CMS           -up->  Frontend:      ""CMS-Daten + Konfiguration""
+....
+
+
+===== AWF-002: tbd
+TODO
+
+===== AWF-003: tbd
+TODO
+
+

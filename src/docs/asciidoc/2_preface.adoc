@@ -1,0 +1,12 @@
+=== Zielsetzung des Dokuments
+
+Dieses Dokument stellt eine *Projekt-Demo-Dokumation* in *Asciidoc* mit *AsciidoctorJ* vor.
+
+=== Übersicht (Management Summary)
+Dieses Dokument zeigt an einigen Beispielen wie eine umfassende Projekt-Dokumentation auf Basis von *Asciidoc* (Beschreibungssprache) und *Asciidoctor* (Renderer) erzeugt werden kann. Es wird neben der Vorstellung der Asciidoc-Syntax-Elemente auch auf die Einbindung von *Grafiken/Diagrammen* auf Basis von *ditaa* und *PlantUML* eingegangen. Ebenfalls wird gezeigt, wie eine Dokumentation modular auf verschiedene Dateien aufgeteilt und daraus ein Gesamtdokument generiert werden kann.
+
+=== Referenzdokumente
+* Fachfeinkonzept_4711.pdf
+* Use-Case-Überblick_1234.pdf
+* Berechtigungskonzept_0815.pdf
+

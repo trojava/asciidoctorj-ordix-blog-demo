@@ -1,0 +1,56 @@
+=== 4-Schichtenarchitektur
+
+Im folgenden wird 4-Schichtenarchitektur der Demo-Applikation vorgestellt. Dazu werden die einzelnen Komponenten zunächst in einer Tabelle aufgeführt.
+
+.Die beteiligten Komponenten
+|===
+| Browser       | Der Browser läuft auf dem Client-PC oder einem mobilen Endgerät (Tablet, Smartphone etc.)
+| Frontend      | Das Frontend wird auf dem Server in der DMZ deployed und ist für das Rendering der GUI zuständig.
+| Middleware    | Die Middleware enthält die Business-Logik.
+| Datenbank     | Die Daten werden in der zentralen Datenbank gespeichert.
+|===
+
+==== Beschreibung
+Folgende Grafik zeigt die Komponenten im Überblick und wie sie miteinander kommunizieren.
+
+.Legende der Grafik
+[ditaa]
+....
++---------+          +------------+          +------------+          +-----------+
+|         |          |            |          |            |          |           |
+| Browser |          | Frontend   |          | Middleware |          | Datenbank |
+|         |   HTTP   |            |   HTTP   |            |   JDBC   |           |
+|         +--------->+            +--------->+            +--------->+           |
+|         |          |            |          |            |          |           |
+|     cYEL|  +------>|        c06F|          |        c0F0|          |       cPNK|
++---------+  |       +-----+------+          +-----+------+          +-----+-----+
+             |             |                       |                              
+             :             |                       |                              
+     /-------+--\          v                       v                              
+     |          |     +----------+            +----------+                        
+     | DMZ      |     | Logging  |            | Logging  |                        
+     |          |     |          |            |          |                        
+     \----------/     |       {d}|            |       {d}|                        
+                      +----------+            +----------+                        
+....
+// Der Bindestrich im Text in den Boxen ist ein "Figure Dash" und kein Minuszeichen: '‒' (U+2012)
+
+==== Protokolle
+Für die Kommunikation zwischen *Browser* und *Frontend* wird `HTTP` eingesetzt. `Das` gilt auch beim Datenaustausch zwischen *Frontend* und *Middleware*. Hier werden über `HTTP` Daten im `JSON`-Format (REST-Services) ausgetauscht. Die *Middleware* kommuniziert klassisch über `JDBC` mit der *Datenbank*.
+
+==== Logging
+Das Logging wird sowohl im *Frontend* als auch in der *Middlware* über die entsprechende Logging-Konfiguration definiert (hier: `log4j.xml`):
+
+[source,xml]
+....
+...
+<layout class="org.apache.log4j.PatternLayout">
+  <param name="ConversionPattern"
+    value="%d{ISO8601} %-5p (%t) [%c{3}(%M:%L)] - %m%n" />
+</layout>
+...
+....
+
+Da dies nur eine Demo-Beschreibung ist, verzichten wir auf die Beschreibung der einzelnen Komponenten im Detail.
+
+

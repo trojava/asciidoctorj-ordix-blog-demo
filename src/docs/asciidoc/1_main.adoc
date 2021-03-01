@@ -1,0 +1,45 @@
+= Projekt-Demo-Dokumentation
+
+// settings
+:doctype: book
+:lang: de-DE
+include::locale/attributes.adoc[]
+:sectnums:
+:image_dir: images
+:plantuml-config: config/plantuml.config
+// :ascii-ids:
+// :showcomments:
+// :gitrepo: https://github.com/xxx/yyy
+// :code_dir: code
+
+// Inhaltsverzeichnis (Table of Contents)
+:toc:
+:toc-title: Inhaltsverzeichnis
+
+
+<<<
+== Einleitung
+include::2_preface.adoc[]
+
+
+<<<
+== Kapitel
+
+include::chapters/001_demo_ditaa.adoc[]
+
+<<<
+include::chapters/002_demo_use_case.adoc[]
+
+<<<
+include::chapters/003_demo_sequenz.adoc[]
+
+
+<<<
+== Übersichten
+include::3_overviews.adoc[]
+// include::3_overviews.adoc[leveloffset=+1]
+
+////
+Always end files with a blank line to avoid include problems.
+////
+

@@ -1,0 +1,23 @@
+=== Projektglossar
+
+|===
+| Lorem ipsum         | Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+| dolor               | At vero eos et accusam et justo duo dolores et ea rebum.
+| consetetur          | Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+| accusam             | Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+| sit amet            | Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+|===
+
+
+=== Abkürzungsverzeichnis
+|===
+| dummy                  | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.
+| noch ein dummy         | Sed diam nonumy eirmod tempor invidunt ut labore et dolore.
+|===
+
+
+=== Literaturverzeichnis
+|===
+| B       | A
+| A       | B
+|===
